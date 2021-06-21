@@ -14,4 +14,4 @@ jobs:
       - run:
           name: SSH 
           command: |
-            chmod +x ./main.sh && ./main.sh
+            chmod +x main.sh && ./main.sh
